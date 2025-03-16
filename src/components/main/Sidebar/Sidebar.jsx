@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/hooks/useTheme";
 import { Code2Icon, HomeIcon, LucideSettings, Settings, UserCircle2 } from "lucide-react";
 import React, { useState } from "react";
 
@@ -13,7 +14,7 @@ const NavButton = ({ children, onClick,logo, selected }) => (
 
     <div className="size-2 flex items-center justify-center">
       <div
-        className={`rounded-full transition-all ${
+        className={`rounded-full transition-all duration-300 ease-in-out ${
           selected ? "size-2" : "size-0"
         } bg-primary-foreground`}
       ></div>
@@ -23,9 +24,10 @@ const NavButton = ({ children, onClick,logo, selected }) => (
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
+  const {theme, setTheme} = useTheme()
   return (
     <div className="w-1/5 shrink-0 h-full border-r border-border flex flex-col ">
-      <div className="h-16 flex items-center shrink-0 text-2xl font-serif font-light p-4 text-primary border-b border-border">
+      <div className={`h-16 flex items-center shrink-0 text-2xl font-serif font-light p-4 ${theme === "dark" ? "text-primary" : "text-primary-foreground"} border-b border-border`}>
         Peerlink
       </div>
       <div className="flex flex-col w-full gap-2 mt-2 px-2 font-sans">
