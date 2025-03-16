@@ -44,6 +44,7 @@ const Sidebar = () => {
           Settings
         </NavButton>
       </div>
+     
     </div>
   );
 };

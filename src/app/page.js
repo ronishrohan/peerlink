@@ -1,6 +1,7 @@
 "use client"
+import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/useTheme';
-import { ArrowRightCircleIcon } from 'lucide-react';
+import { ArrowRightCircleIcon, PlusCircle } from 'lucide-react';
 import React from 'react'
 
 const Card = ({ color, children }) => {
@@ -18,11 +19,16 @@ const Card = ({ color, children }) => {
 
 const page = () => {
   return (
-    <div className='w-full h-[200vh] shrink-0 grid gap-2 grid-cols-4 p-2'>
+    <div className='flex flex-col p-2' >
+      <div className='w-full shrink-0 grid gap-2 grid-cols-4 '>
       <Card color="green">Need a team?</Card>
       <Card color="blue">Looking for devs?</Card>
       <Card color="yellow">Find designers</Card>
       <Card color="pink">Project ideas</Card>
+    </div>
+    <div className="mt-4 text-5xl   flex justify-between items-stretch" ><span className='font-serif font-thin tracking-tighter' >Upcoming</span>
+      <Button variant="default" className={"h-full "}><PlusCircle />More </Button>
+    </div>
     </div>
   )
 }
