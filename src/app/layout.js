@@ -1,15 +1,20 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/main/Sidebar/Sidebar";
+import Topbar from "@/components/main/Topbar/Topbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
+
+console.log("Playfair className:", playfair.className);
+console.log("Inter className:", inter.className);
 
 export const metadata = {
   title: "Create Next App",
@@ -20,9 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${inter.variable} antialiased dark flex h-screen overflow-hidden`}
       >
-        {children}
+        <Sidebar />
+        <main className="w-full flex flex-col overflow-auto">
+          <Topbar />
+          
+          {children}
+        </main>
       </body>
     </html>
   );
