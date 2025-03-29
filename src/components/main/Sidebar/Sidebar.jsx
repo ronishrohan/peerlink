@@ -26,7 +26,7 @@ const Sidebar = () => {
   const [selected, setSelected] = useState(0);
   const {theme, setTheme} = useTheme()
   return (
-    <div className="w-1/5 shrink-0 h-full border-r border-border flex flex-col ">
+    <div className="sm:w-1/5 overflow-hidden shrink-0 h-full border-r border-border flex flex-col w-0 ">
       <div className={`h-16 flex items-center shrink-0 text-2xl font-serif font-light p-4 ${theme === "dark" ? "text-primary" : "text-primary-foreground"} border-b border-border`}>
         Peerlink
       </div>
